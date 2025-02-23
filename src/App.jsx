@@ -8,35 +8,39 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import AuthRoute from "./components/ProtectedRoute/AuthRoute";
 import PageNotFound from "./Pages/PageNotFound/PageNotFound";
 import Home from "./Pages/Home/Home";
-import CreateRoom from "./AdminScreens/RoomManagementScreen/CreateRoom";
+// import CreateRoom from "./AdminScreens/RoomManagementScreen/CreateRoom";
+import { ThemeProvider, createTheme } from "@mui/material/styles"; // Import createTheme
 
+const theme = createTheme();
 const App = () => {
   return (
     <>
-      <Routes>
+      <ThemeProvider theme={theme}>
+        <Routes>
           <Route path="/" element={<Home />} />
-        <Route element={<AuthRoute />}>
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-        <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard/*" element={<Dashboard />} />
-        </Route>
-        <Route path="create" element={<CreateRoom/>}/>
-      </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+          <Route element={<AuthRoute />}>
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard/*" element={<Dashboard />} />
+          </Route>
+          {/* <Route path="create" element={<CreateRoom/>}/> */}
+        </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+      </ThemeProvider>
     </>
   );
 };

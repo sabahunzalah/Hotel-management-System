@@ -1,63 +1,59 @@
 .sliderContainer {
-    width: 100%;
-    height: 300px; 
-    /* border: 2px solid black; */
-  }
+  width: 100%;
+  margin: auto;
+  height: 350px;
+  padding-top: 10px;
+  position: relative;
   
-  .sliderImage {
-    height: 300px;
-    width: 100%;
-    object-fit: cover; 
-    /* border: 2px solid rgb(72, 33, 151); */
+}
 
-  }
-  
-  .slider {
-    width: 100%;
-    height: 100%;
-    /* border: 2px solid rgb(187, 23, 23); */
+.sliderImage {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px; 
+}
 
-  }
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background-color: rgba(180, 180, 180, 0.5);
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-   
-    
-  }
-  .arrowPre {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background-color: rgba(149, 145, 145, 0.5);
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    left: 10px;
-  }
+
+.slick-slide > div {
+  margin: 0 15px; 
+}
+
+
+.slick-list {
+  margin: 0 -15px;
+}
+
+.cardContent {
+  position: absolute;
   
-  .arrowNext {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background-color: rgba(149, 145, 145, 0.5);
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    right: 10px;
-  }
-  
-  .arrowPre:hover,
-  .arrowNext:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
+  left: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+
+.arrowPre,
+.arrowNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.arrowPre {
+  left: -30px;
+}
+.arrowNext {
+  right: -30px;
+}
+
+.arrowPre:hover,
+.arrowNext:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Box,
@@ -21,11 +20,10 @@ import { Menu, ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../Store/Slices/authSlice";
-import { AdminPanel,CustomerPanel } from "./Data";
+import { AdminPanel, CustomerPanel } from "./Data";
 import Rooms from "../../CustomersScreens/Rooms/Rooms";
 import ServicesProvided from "../../CustomersScreens/Services/ServicesProvided";
 import BookingMethod from "../../CustomersScreens/BookingMethod/BookingMethod";
-import ProfileMethod from "../../CustomersScreens/Profile/ProfileMethod";
 import CustomerManaScreen from "../../AdminScreens/CustomerManagementScreen/CustomerManaScreen";
 import RoomManaScreen from "../../AdminScreens/RoomManagementScreen/RoomManaScreen";
 import BookingManaScreen from "../../AdminScreens/BookingManagementScreen/BookingManaScreen";
@@ -34,6 +32,7 @@ import ServiceManaScreen from "../../AdminScreens/ServiceManagementScreen/Servic
 import InventoryManaScreen from "../../AdminScreens/InventoryManagementScreen/InventoryManaScreen";
 import AdminProfile from "../../AdminScreens/Admin Profile/AdminProfile";
 import PaymentMethod from "../../CustomersScreens/PaymentMethod/PaymentMethod";
+import UserProfile from "../../CustomersScreens/Profile/ProfileMethod";
 
 const drawerWidth = 240;
 
@@ -46,15 +45,12 @@ export default function Dashboard() {
   const storedUser = JSON.parse(localStorage.getItem("userData"));
   const role = storedUser?.role;
 
-  // Get user data from Redux
   const user = useSelector((state) => state.auth.user);
 
-  // Handle drawer toggle
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  // Toggle function for nested items
   const handleToggle = (segment) => {
     setOpenSections((prev) => ({
       ...prev,
@@ -62,7 +58,6 @@ export default function Dashboard() {
     }));
   };
 
-  // Logout function
   const logOut = () => {
     dispatch(logoutUser());
     navigate("/");
@@ -87,10 +82,7 @@ export default function Dashboard() {
                 <ListItemButton
                   onClick={() => navigate(`/dashboard/${obj.route}`)}
                 >
-                  {/* <ListItemIcon sx={{ color: "#046ea0" }}>
-                    {obj.icon}
-                  </ListItemIcon> */}
-                  
+
                   <ListItemText primary={obj.title} />
                   {obj.children ? (
                     openSections[obj.segment] ? (
@@ -158,7 +150,7 @@ export default function Dashboard() {
             <Menu />
           </IconButton>
 
-          {/* Display logged-in user's name */}
+        
           <Typography variant="h6" noWrap>
             {user && `Welcome ${user.username}`}
           </Typography>
@@ -210,24 +202,38 @@ export default function Dashboard() {
       <Box component="main" sx={{ flexGrow: 1, p: 3, height: "100vh" }}>
         <Toolbar />
         {role === "admin" ? (
-        <Routes>
-          <Route path="CustomerManagementScreen" element={<CustomerManaScreen />} />
-          <Route path="RoomManagementScreen" element={<RoomManaScreen />} />
-          <Route path="BookingManagementScreen" element={<BookingManaScreen />} />
-          <Route path="PaymentManagementScreen" element={<PaymentManaScreen />} />
-          <Route path="ServiceManagementScreen" element={<ServiceManaScreen />} />
-          <Route path="InventoryManagementScreen" element={<InventoryManaScreen />} />
-          <Route path="profile" element={<AdminProfile />} />
-        </Routes>
-        ):(
           <Routes>
-          <Route path="rooms" element={<Rooms />} />
-          <Route path="services" element={<ServicesProvided />} />
-          <Route path="bookingMethod" element={<BookingMethod />} />
-          <Route path="paymentMethod" element={<PaymentMethod/>} />
-          <Route path="userprofile" element={<ProfileMethod/>} />
-        
-        </Routes>
+            <Route
+              path="CustomerManagementScreen"
+              element={<CustomerManaScreen />}
+            />
+            <Route path="RoomManagementScreen" element={<RoomManaScreen />} />
+            <Route
+              path="BookingManagementScreen"
+              element={<BookingManaScreen />}
+            />
+            <Route
+              path="PaymentManagementScreen"
+              element={<PaymentManaScreen />}
+            />
+            <Route
+              path="ServiceManagementScreen"
+              element={<ServiceManaScreen />}
+            />
+            <Route
+              path="InventoryManagementScreen"
+              element={<InventoryManaScreen />}
+            />
+            <Route path="profile" element={<AdminProfile />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="rooms" element={<Rooms />} />
+            <Route path="services" element={<ServicesProvided />} />
+            <Route path="bookingMethod" element={<BookingMethod />} />
+            <Route path="paymentMethod" element={<PaymentMethod />} />
+            <Route path="userprofile" element={<UserProfile />} />
+          </Routes>
         )}
       </Box>
     </Box>
