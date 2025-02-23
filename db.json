@@ -1,51 +1,44 @@
 {
   "rooms": [
     {
-      "id": 1,
-      "roomNumber": "001",
-      "roomType": "Standard",
-      "status": "Avaliable",
-      "des": {
-        "roomtype": "Victor Plains",
-        "status ": "Suite 879",
-        "pricing": "Wisokyburgh"
-      }
-    },
-    {
       "id": 2,
       "roomNumber": "002",
       "roomType": "Basic",
-      "status": "Avaliable",
-      "des": {
-        "roomtype": "Victor Plains",
-        "status ": "Suite 879",
-        "pricing": "Wisokyburgh"
-      }
+      "roomStatus": "Available"
     },
     {
       "id": 3,
       "roomNumber": "003",
-      "roomType": "Primium",
-      "status": "Avaliable",
-      "des": {
-        "roomtype": "Victor Plains",
-        "status ": "Suite 879",
-        "pricing": "Wisokyburgh"
-      }
-    },
-    {
-      "id": "04",
-      "roomNumber": "004",
-      "roomType": "standard",
-      "status": "",
-      "roomStatus": "not available"
-    },
-    {
-      "id": "5",
-      "roomNumber": "005",
       "roomType": "basic",
-      "roomStatu": "",
-      "roomStatus": "avliable"
+      "roomStatus": "reserved"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "customerName": "M ali",
+      "roomNumber": "001",
+      "bookingDate": "2025-02-23",
+      "status": "Confirmed"
+    },
+    {
+      "id": 2,
+      "customerName": "mrs Ahmed",
+      "roomNumber": "002",
+      "bookingDate": "2025-04-24",
+      "status": "Pending"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "serviceName": "Room Cleaning",
+      "availability": "Daily"
+    },
+    {
+      "id": 2,
+      "serviceName": "Laundry",
+      "availability": "On Demand"
     }
   ]
 }

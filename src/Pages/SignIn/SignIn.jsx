@@ -29,12 +29,11 @@ const SignIn = () => {
     dispatch(loginUser(userdata))
       .unwrap()
       .then((userData) => {
-        // Save user data to localStorage
+        
         localStorage.setItem("userData", JSON.stringify(userData));
 
-        // Retrieve role from localStorage
         const storedUser = JSON.parse(localStorage.getItem("userData"));
-        // const role = storedUser.role;
+
         storedUser &&  navigate("/dashboard")
        
        
@@ -56,7 +55,7 @@ const SignIn = () => {
         justifyContent: "space-between",
         alignItems: "center",
         // border: "2px solid red",
-        background: "linear-gradient(to bottom, #03bdb3, #046ea0)",
+        // background: "linear-gradient(to bottom, #03bdb3, #046ea0)",
       }}
     >
        <Grid item xs={12} sm={12} md={6} lg={6}>
@@ -71,7 +70,7 @@ const SignIn = () => {
           borderRadius: "20px",
           backgroundColor: "white",
           opacity: 0.9,
-          boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.2)", // Soft shadow
+          boxShadow: "4px 4px 10px rgba(0, 0, 0, 0.2)", 
         }}
       >
         <Typography variant="h4">Sign In</Typography>

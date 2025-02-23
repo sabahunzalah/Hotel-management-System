@@ -52,7 +52,8 @@ const SignUp = () => {
           justifyContent: "space-between",
           alignItems: "center",
           // border: "2px solid red",
-          background: "linear-gradient(to bottom, #03bdb3, #046ea0)",
+          // background: "linear-gradient(to bottom, #03bdb3, #046ea0)",
+        
         }}
       >
           <Grid item xs={12} sm={12} md={6} lg={6}>
